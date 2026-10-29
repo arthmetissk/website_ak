@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Alvin Kallicharran BEM: West Indies and Warwickshire batsman, two-time World Cup winner, author of Colour Blind and youth coach in North Carolina.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%236E1627'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='40' font-weight='700' text-anchor='middle' fill='%23F6F2EC'%3EK%3C/text%3E%3C/svg%3E">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Alvin Kallicharran</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..600&display=swap">
+<style>
+/* Layout: a scorecard-minded single page. Maroon cap-colour hero band, chalk-white pages, mono type for every number and date. */
+:root {
+  --bg: #F2F4F0;
+  --fg: #15191A;
+  --muted: #4F5A54;
+  --line: #C6CFC5;
+  --surface: #E8EDE6;
+  --brand: #6E1627;
+  --on-brand: #F6F2EC;
+  --accent: #8A1B30;
+  --gold: #D9A400;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1411; --fg: #E6EBE4; --muted: #9AA79F; --line: #2B3730; --surface: #151D19;
+    --brand: #561021; --on-brand: #F3EFE9; --accent: #F0A0AE; --gold: #E6B422;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1411; --fg: #E6EBE4; --muted: #9AA79F; --line: #2B3730; --surface: #151D19;
+  --brand: #561021; --on-brand: #F3EFE9; --accent: #F0A0AE; --gold: #E6B422;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.65;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.08; margin: 0; }
+p { margin: 0; }
+
+.wrap {
+  width: 100%; max-width: 1080px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: var(--bg); border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; gap: 1.25rem; min-height: 3.25rem; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.25rem; color: var(--fg); text-decoration: none; flex: none; }
+.brand i { font-style: normal; color: var(--accent); }
+.top nav { display: flex; gap: 1.1rem; overflow-x: auto; min-width: 0; scrollbar-width: none; }
+.top nav::-webkit-scrollbar { display: none; }
+.top nav a {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none; white-space: nowrap; padding: 0.9rem 0;
+}
+.top nav a:hover { color: var(--accent); }
+section[id] { scroll-margin-top: 4.5rem; }
+
+/* Hero */
+.hero {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 64px, rgba(255,255,255,0) 64px 128px),
+    var(--brand);
+  color: var(--on-brand);
+  position: relative;
+  overflow: hidden;
+}
+.hero .label { color: var(--on-brand); opacity: 0.8; }
+.hero h1 {
+  font-weight: 800; letter-spacing: -0.02em;
+  font-size: clamp(2.3rem, 10.6vw, 6.4rem); margin-top: 1rem;
+}
+.hero h1 span { display: block; }
+.hero h1 small {
+  font-family: var(--mono); font-weight: 500; font-size: 0.8rem; letter-spacing: 0.14em;
+  color: var(--gold); vertical-align: top; margin-left: 0.5rem;
+}
+.lede { font-size: clamp(1.15rem, 2.6vw, 1.5rem); max-width: 34ch; margin-top: 1.25rem; line-height: 1.4; }
+.scoreline {
+  font-family: var(--mono); font-size: 0.82rem; line-height: 1.7; letter-spacing: 0.02em;
+  margin-top: 1.75rem; padding-top: 1rem; max-width: 46rem;
+  border-top: 2px solid var(--gold);
+}
+.cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+.btn {
+  display: inline-block; font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.75rem 1.15rem; border: 1.5px solid currentColor; border-radius: 2px;
+  color: inherit; text-decoration: none;
+}
+.hero .btn.primary { background: var(--on-brand); color: var(--brand); border-color: var(--on-brand); }
+.hero .btn:hover { background: var(--gold); border-color: var(--gold); color: #1a1400; }
+.btn.solid { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.btn.ghost { color: var(--accent); }
+.btn.ghost:hover, .btn.solid:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+.btn[aria-disabled="true"] { opacity: 0.55; border-style: dashed; pointer-events: none; }
+
+/* Sections */
+.block { padding-block: clamp(2.75rem, 7vw, 5rem); border-top: 1px solid var(--line); }
+.block.tint { background: var(--surface); }
+.head { display: grid; gap: 0.6rem; margin-bottom: 2rem; max-width: 40rem; }
+.head h2 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 750; letter-spacing: -0.015em; }
+.head p { color: var(--muted); }
+
+/* Story */
+.story { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .story { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 4rem; } }
+.prose { display: grid; gap: 1.1rem; max-width: 40rem; }
+.prose p:first-child::first-letter { font-family: var(--display); font-weight: 800; }
+.pull {
+  align-self: start; font-family: var(--display); font-weight: 650;
+  font-size: clamp(1.7rem, 4vw, 2.4rem); line-height: 1.15; letter-spacing: -0.01em;
+  padding-top: 1.1rem; border-top: 3px solid var(--brand);
+}
+.pull cite { display: block; margin-top: 1rem; font-family: var(--mono); font-size: 0.76rem; font-style: normal; font-weight: 400; letter-spacing: 0.04em; color: var(--muted); line-height: 1.5; }
+:root[data-theme="dark"] .pull { border-top-color: var(--gold); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pull { border-top-color: var(--gold); } }
+
+/* Timeline */
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; }
+.timeline li {
+  display: grid; grid-template-columns: 5.6rem minmax(0, 1fr); gap: 1rem 1.25rem;
+  padding-block: 1.15rem; border-bottom: 1px solid var(--line);
+}
+@media (min-width: 700px) { .timeline li { grid-template-columns: 8rem minmax(0, 1fr); } }
+.timeline time { font-family: var(--mono); font-weight: 500; font-size: 0.9rem; color: var(--accent); padding-top: 0.2rem; }
+.timeline h3 { font-size: 1.25rem; font-weight: 700; }
+.timeline p { margin-top: 0.35rem; color: var(--muted); max-width: 44rem; }
+.timeline li.now time { color: var(--fg); }
+
+/* Scorecard */
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 2px; background: var(--bg); }
+table.card { border-collapse: collapse; width: 100%; min-width: 540px; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+.card caption { text-align: left; padding: 0.9rem 1rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.card th, .card td { padding: 0.7rem 1rem; text-align: right; border-top: 1px solid var(--line); white-space: nowrap; }
+.card th:first-child, .card td:first-child { text-align: left; }
+.card thead th { background: var(--brand); color: var(--on-brand); border-top: 0; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.78rem; }
+.card tbody th { font-weight: 400; color: var(--muted); }
+.card td.hl { font-weight: 500; color: var(--accent); }
+.moments { display: grid; gap: 1px; grid-template-columns: minmax(0, 1fr); margin-top: 2rem; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 760px) { .moments { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.moments div { background: var(--bg); padding: 1.25rem; display: grid; gap: 0.4rem; align-content: start; }
+.moments b { font-family: var(--mono); font-weight: 500; font-size: 1.6rem; color: var(--accent); letter-spacing: -0.02em; }
+.moments span { color: var(--muted); font-size: 0.98rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+
+/* Cards: giving back and news */
+.grid { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; } }
+.item { display: grid; gap: 0.55rem; align-content: start; padding: 1.25rem; border: 1px solid var(--line); border-radius: 2px; background: var(--bg); }
+.tint .item { background: var(--bg); }
+.item h3 { font-size: 1.3rem; font-weight: 700; }
+.item p { color: var(--muted); font-size: 1rem; }
+.item .go { margin-top: 0.4rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; }
+.item.lead { border-color: var(--brand); border-width: 2px; }
+@media (min-width: 720px) { .item.lead { grid-column: 1 / -1; } }
+
+/* Video + photo */
+.watch { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .watch { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); } }
+.feature {
+  display: grid; gap: 0.8rem; align-content: end; min-height: 15rem; padding: 1.5rem;
+  background: var(--brand); color: var(--on-brand); border-radius: 2px;
+  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 48px, rgba(255,255,255,0) 48px 96px);
+}
+.feature h3 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); font-weight: 750; }
+.feature p { opacity: 0.88; max-width: 34rem; }
+.feature .btn { justify-self: start; background: var(--on-brand); color: var(--brand); border-color: var(--on-brand); }
+.feature .btn:hover { background: var(--gold); border-color: var(--gold); color: #1a1400; }
+.queue { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 2px; align-content: start; background: var(--bg); }
+.queue a { display: grid; gap: 0.15rem; padding: 1rem 1.1rem; text-decoration: none; color: var(--fg); border-top: 1px solid var(--line); }
+.queue a:first-child { border-top: 0; }
+.queue a:hover { background: var(--surface); }
+.queue strong { font-family: var(--display); font-weight: 650; font-size: 1.1rem; }
+.queue span { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+.photos { display: grid; gap: 0.9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 720px) { .photos { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.photos figure { margin: 0; display: grid; gap: 0.5rem; }
+.frame {
+  aspect-ratio: 4 / 3; max-width: 100%; display: grid; place-items: center; padding: 0.75rem; text-align: center;
+  border: 1.5px dashed var(--line); background: var(--surface); color: var(--muted);
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.photos figcaption { font-size: 0.95rem; color: var(--muted); }
+
+/* Book */
+.book { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 800px) { .book { grid-template-columns: minmax(0, 18rem) minmax(0, 1fr); gap: 3.5rem; } }
+.cover {
+  aspect-ratio: 2 / 3; max-width: 15rem; width: 100%; display: grid; align-content: space-between; padding: 1.25rem;
+  background: var(--brand); color: var(--on-brand); border-radius: 2px;
+}
+.cover b { font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; }
+.cover span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; line-height: 1.5; }
+.cover-img { display: block; width: 100%; max-width: 18rem; height: auto; border: 1px solid var(--line); border-radius: 2px; }
+.book h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.8rem; }
+.book .prose { gap: 0.9rem; }
+
+.hero-bg { display: block; width: 100%; height: clamp(15rem, 62vw, 24rem); object-fit: cover; object-position: 54% 40%; -webkit-mask-image: linear-gradient(180deg, #000 68%, transparent 100%); mask-image: linear-gradient(180deg, #000 68%, transparent 100%); }
+.hero .wrap { position: relative; padding-block: 0.25rem clamp(2.25rem, 6vw, 4.5rem); }
+.hero-copy { min-width: 0; }
+@media (min-width: 900px) {
+  .hero { display: grid; align-items: center; min-height: 34rem; }
+  .hero-bg { position: absolute; top: 0; right: 0; width: 72%; height: 100%; object-position: 50% 45%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%); mask-image: linear-gradient(90deg, transparent 0%, #000 38%); }
+  .hero .wrap { padding-block: clamp(3rem, 6vw, 5rem); }
+  .hero-copy { max-width: 36rem; }
+  .hero h1 { font-size: clamp(3.2rem, 5.4vw, 4.4rem); }
+}
+.story-side { display: grid; gap: 1.75rem; align-self: start; min-width: 0; }
+.portrait { margin: 0; }
+.portrait img { display: block; width: 100%; max-width: 22rem; height: auto; border: 3px solid var(--gold); border-radius: 2px; }
+.gal { columns: 2; column-gap: 0.9rem; }
+@media (min-width: 720px) { .gal { columns: 3; column-gap: 1.1rem; } }
+.ph { display: block; position: relative; width: 100%; margin: 0 0 0.9rem; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; break-inside: avoid; overflow: hidden; border-radius: 2px; }
+@media (min-width: 720px) { .ph { margin-bottom: 1.1rem; } }
+.ph img { display: block; width: 100%; height: auto; }
+.ph span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem 0.7rem 0.55rem; text-align: left; font-family: var(--mono); font-size: 0.7rem; line-height: 1.35; letter-spacing: 0.03em; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, 0.78)); opacity: 0; transition: opacity 0.15s; }
+.ph:hover span, .ph:focus-visible span { opacity: 1; }
+.ph:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.lb { position: fixed; inset: 0; z-index: 50; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 0.75rem; background: rgba(8, 10, 9, 0.95); color: #F2F4F0; padding: max(12px, env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) max(12px, env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.lb[hidden] { display: none; }
+.lb-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; }
+.lb-stage { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.5rem; min-height: 0; }
+.lb-stage img { justify-self: center; max-width: 100%; max-height: 70vh; max-height: calc(100dvh - 11rem); width: auto; height: auto; object-fit: contain; }
+.lb-cap { margin: 0; text-align: center; font-family: var(--mono); font-size: 0.8rem; line-height: 1.5; padding-bottom: 0.25rem; }
+.lb button { font-family: var(--mono); font-size: 0.85rem; color: inherit; background: transparent; border: 1.5px solid currentColor; border-radius: 2px; padding: 0.6rem 0.8rem; cursor: pointer; line-height: 1; }
+.lb button:hover { background: #F2F4F0; color: #0E1411; }
+.lb button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.lb-nav { font-size: 1.4rem !important; padding: 0.7rem 0.75rem !important; }
+.sub { font-size: 1.5rem; font-weight: 700; margin: 3.25rem 0 1.25rem; }
+@media (min-width: 900px) { .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+button.btn { background: transparent; cursor: pointer; }
+.chip { display: inline-block; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.65rem; border: 1.5px solid var(--gold); border-radius: 2px; }
+.price { font-family: var(--mono); font-size: 0.88rem; line-height: 1.6; margin-top: 1.25rem; padding: 0.85rem 1rem; border-left: 3px solid var(--gold); background: var(--bg); max-width: 34rem; }
+.chapters { list-style: none; counter-reset: ch; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
+@media (min-width: 800px) { .chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; } }
+.chapters li { counter-increment: ch; display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: 0.15rem 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--line); align-content: start; }
+.chapters li::before { content: counter(ch, decimal-leading-zero); font-family: var(--mono); font-size: 0.8rem; color: var(--accent); padding-top: 0.3rem; }
+.chapters h4 { margin: 0; font-family: var(--display); font-size: 1.1rem; font-weight: 700; line-height: 1.25; }
+.chapters p { grid-column: 2; color: var(--muted); font-size: 0.98rem; line-height: 1.5; }
+.mail { font-family: var(--mono); font-size: 1.05rem; overflow-wrap: anywhere; color: var(--fg); }
+.note { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); letter-spacing: 0.02em; }
+.credit { display: flex; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.credit img { display: block; flex: none; width: 6.5rem; height: auto; border: 1px solid var(--line); border-radius: 2px; }
+.credit p { display: grid; gap: 0.2rem; min-width: 0; }
+.credit strong { font-family: var(--display); font-weight: 700; font-size: 1.2rem; color: var(--fg); }
+footer { border-top: 1px solid var(--line); padding-block: 2.5rem 3rem; color: var(--muted); font-size: 0.95rem; }
+footer .wrap { display: grid; gap: 1rem; }
+footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; font-family: var(--mono); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Kalli<i>.</i></a>
+    <nav aria-label="Sections">
+      <a href="#story">Story</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#cricket">Cricket</a>
+      <a href="#book">Book</a>
+      <a href="#academy">Coaching</a>
+      <a href="#foundation">Foundation</a>
+      <a href="#india">India 2019</a>
+      <a href="#watch">Media</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <img class="hero-bg" src="photos/hero-bat.webp" width="1800" height="1344" alt="Alvin Kallicharran playing a pull shot, the wicketkeeper crouched behind him">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+    <p class="label">West Indies · Guyana · Warwickshire</p>
+    <h1><span>Alvin</span><span>Kallicharran<small>BEM</small></span></h1>
+    <p class="lede">The Little Giant of West Indies cricket. From the streets of Port Mourant to two World Cup wins and a British Empire Medal, and now a life spent coaching young players.</p>
+    <p class="scoreline">66 Tests · 4,399 runs · average 44.43 · 12 hundreds · World Cup winner 1975 and 1979</p>
+    <div class="cta">
+      <a class="btn primary" href="#story">Read his story</a>
+      <a class="btn" href="#book">Get Colour Blind</a>
+      <a class="btn" href="#foundation">Give back</a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="story">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">His story</p>
+      <h2>A small man with a very large bat</h2>
+    </div>
+    <div class="story">
+      <div class="prose">
+        <p>Alvin Isaac Kallicharran was born on 21 March 1949 in Port Mourant, a village in Berbice, then British Guiana. He has described a home so small that around twenty people shared it, a job at a rice mill by the age of ten, and street games played with coconut branches for bats and balls shaped from tree wood.</p>
+        <p>His first real bat came from Basil Butcher, a Guyanese Test batsman. By 1966 he was captaining Guyana's under-16 side, and a first-class debut followed. At 5 ft 4 in, the man they called the Little Giant did not look like someone to fear, yet bowlers across the world learned otherwise. Cricinfo remembers a batsman of poise, balance and a full range of strokes, whose bat seemed too large for him. His own site calls him a classical batsman and one of the great West Indies batsmen of the Golden Era.</p>
+        <p>He played 66 Tests for the West Indies between 1972 and 1981, captained the side in 1977–78 and 1978–79, and won the World Cup in both 1975 and 1979. Two decades with Warwickshire, a Wisden Cricketer of the Year award and a long second career as coach, mentor and author followed. Today he coaches young players in Charlotte, North Carolina, runs the Alvin Kallicharran Foundation with his wife, Patsy, and works as a freelance coach and motivational and public speaker, travelling to coach and speak to children and clubs elsewhere.</p>
+      </div>
+      <div class="story-side">
+        <blockquote class="pull" style="margin:0">
+        “The game has been so good to me”
+        <cite>Alvin Kallicharran, at the launch of his autobiography, Georgetown. Caribbean Today</cite>
+      </blockquote>
+        <figure class="portrait"><img src="photos/p01f.webp" width="1024" height="1024" alt="Alvin Kallicharran smiling in a green cap and cream shirt" loading="lazy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="timeline">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Life history</p>
+      <h2>A life in cricket, still being written</h2>
+    </div>
+    <ol class="timeline">
+      <li><time>1949</time><div><h3>Born in Port Mourant, Berbice</h3><p>Born on 21 March in a village in what was then British Guiana. Street cricket came first.</p></div></li>
+      <li><time>1966–67</time><div><h3>Captain, then first-class cricketer</h3><p>Led the Guyana under-16 team in 1966 and made his first-class debut for Guyana the following season.</p></div></li>
+      <li><time>1971</time><div><h3>Joins Warwickshire</h3><p>Started a county career that ran until 1990. His Warwickshire cap arrived in 1972.</p></div></li>
+      <li><time>1972</time><div><h3>Test debut</h3><p>Played his first Test for the West Indies on 6 April against New Zealand in Guyana.</p></div></li>
+      <li><time>1973–74</time><div><h3>158 in Port of Spain</h3><p>Many regard this century against England as his finest innings. It is also remembered for a run-out appeal that England withdrew overnight so he could resume the next morning. His first one-day international came on 5 September 1973.</p></div></li>
+      <li><time>1975</time><div><h3>World Cup winner</h3><p>Scored 78 against Australia in the first World Cup, and famously took 35 runs off ten balls from Dennis Lillee.</p></div></li>
+      <li><time>1977–79</time><div><h3>Captain of the West Indies</h3><p>Took over from Clive Lloyd during the Packer dispute and led the side in India and Sri Lanka. His highest Test score, 187, came against India in December 1978.</p></div></li>
+      <li><time>1979</time><div><h3>Second World Cup</h3><p>One of only six West Indians to be in both the 1975 and 1979 winning squads.</p></div></li>
+      <li><time>1981</time><div><h3>Final international matches</h3><p>Last Test on 4 January against Pakistan, last one-day international on 4 February against England.</p></div></li>
+      <li><time>1981–88</time><div><h3>Bringing top cricket to South Africa</h3><p>Led a West Indian team on a tour there, then played for Transvaal and Orange Free State. He told Sportstar the tour gave black and coloured South Africans international-standard cricket to watch like never before, and that they were delighted to see his side beat the white South African team.</p></div></li>
+      <li><time>1983</time><div><h3>Wisden Cricketer of the Year</h3><p>Also named South African Cricket Annual Cricketer of the Year, and enjoyed his Warwickshire benefit season.</p></div></li>
+      <li><time>1984</time><div><h3>206 and 6 for 32</h3><p>A double century and a six-wicket haul in one NatWest Trophy match against Oxfordshire.</p></div></li>
+      <li><time>2012</time><div><h3>London Olympics ambassador</h3><p>Took on the role of ambassador for the London Olympics 2012.</p></div></li>
+      <li><time>2019</time><div><h3>British Empire Medal, India tour and Colour Blind</h3><p>Honoured in the New Year Honours for services to cricket and charity. In March he toured India, coaching in Chennai and Pilibhit and previewing his memoir, Colour Blind, in Chennai. In August he became a mentor to the Puducherry men's and women's teams.</p></div></li>
+      <li><time>2020–23</time><div><h3>USA Cricket youth selector</h3><p>Served as a member of USA Cricket's men's youth selection panel.</p></div></li>
+      <li><time>2023</time><div><h3>Back in Port Mourant</h3><p>Spent his 74th birthday in his home village for the launch of an illustrated children's book about his life.</p></div></li>
+      <li><time>2024</time><div><h3>Alvin Kallicharran Foundation</h3><p>Founded in May with his wife, Patsy, to serve underprivileged children in Guyana through education and sport.</p></div></li>
+      <li class="now"><time>Today</time><div><h3>Coaching in Charlotte</h3><p>Coaches young players at Stanley School of Cricket and Elite Cricket Academy in Charlotte, North Carolina, where Elite lists him as Brand Ambassador and Mentor. He also speaks at events about his life in the game.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="cricket">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Cricket and stats</p>
+      <h2>The scorecard</h2>
+      <p>Left-handed batsman, right-arm off-break bowler. West Indies 1972 to 1981, Guyana, Berbice, Warwickshire, Queensland, Transvaal and Orange Free State.</p>
+    </div>
+    <div class="scroll" role="region" aria-label="Career statistics table" tabindex="0">
+      <table class="card">
+        <caption>Career batting and fielding</caption>
+        <thead><tr><th></th><th>Tests</th><th>ODIs</th><th>First-class</th><th>List A</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Matches</th><td>66</td><td>31</td><td>505</td><td>383</td></tr>
+          <tr><th scope="row">Runs</th><td class="hl">4,399</td><td>826</td><td class="hl">32,650</td><td>11,336</td></tr>
+          <tr><th scope="row">Average</th><td class="hl">44.43</td><td>34.41</td><td>43.64</td><td>34.66</td></tr>
+          <tr><th scope="row">100s / 50s</th><td>12 / 21</td><td>0 / 6</td><td class="hl">87 / 160</td><td>15 / 71</td></tr>
+          <tr><th scope="row">Top score</th><td>187</td><td>78</td><td>243*</td><td>206</td></tr>
+          <tr><th scope="row">Wickets</th><td>4</td><td>3</td><td>84</td><td>42</td></tr>
+          <tr><th scope="row">Catches</th><td>51</td><td>8</td><td>323</td><td>86</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="moments">
+      <div><b>35 off 10</b><span>Against Dennis Lillee at the 1975 World Cup, in a 78 against Australia.</span></div>
+      <div><b>158</b><span>At Port of Spain against England, 1973–74. Many call it his best Test innings.</span></div>
+      <div><b>206 &amp; 6-32</b><span>In one NatWest Trophy match for Warwickshire against Oxfordshire, 1984.</span></div>
+      <div><b>1983</b><span>Wisden Cricketer of the Year, and South African Cricket Annual Cricketer of the Year.</span></div>
+      <div><b>1975</b><span>Indian Cricket Cricketer of the Year, the year of the first World Cup win.</span></div>
+      <div><b>BEM</b><span>British Empire Medal, New Year Honours 2019, for services to cricket and charity.</span></div>
+    </div>
+    <div class="links">
+      <a class="btn solid" href="https://www.cricinfo.com/cricketers/alvin-kallicharran-52285" target="_blank" rel="noopener">Full profile on ESPNcricinfo</a>
+      <a class="btn ghost" href="https://wisden.com/players/alvin-kallicharran" target="_blank" rel="noopener">Wisden profile</a>
+      <a class="btn ghost" href="https://en.wikipedia.org/wiki/Alvin_Kallicharran" target="_blank" rel="noopener">Wikipedia</a>    </div>
+  </div>
+</section>
+
+<section class="block tint" id="book">
+  <div class="wrap">
+    <div class="book">
+      <img class="cover-img" src="photos/colour-blind-cover.webp" width="447" height="447" alt="Cover of Colour Blind: a black and white portrait of Alvin Kallicharran in front of a stadium, with the title in yellow script">
+      <div>
+        <p class="label">The book</p>
+        <h3 style="margin-top:.6rem">Colour Blind</h3>
+        <div class="prose">
+          <p>A memoir and a guide for anyone in a slump or searching for purpose. Alvin tells his life in four stages: a poor childhood, his rise as a cricketer, a search for meaning through the game, and a decision to give back with spiritual awareness. It is also a practical guide for startups and aspiring cricketers, and a case for staying humane, decent and strong in hard circumstances.</p>
+          <p>He wrote it, with his wife Patsy's encouragement, to give back to young people. Each chapter ends with key takeaways and action steps. The title reflects his belief that sport is the ultimate equalizer and that the ball knows no color. Its themes include community giving, hope and unity.</p>
+        </div>
+        <p class="price">Signed copy: $20 plus $3.99 shipping within the USA. Price as listed on the book's own site.</p>
+        <div class="links">
+          <a class="btn solid" href="https://colourblind.alvinkallicharran.com" target="_blank" rel="noopener">Order a signed copy</a>
+          <a class="btn ghost" href="https://www.amazon.com/Colour-Blind-Struggles-Sacrifice-Success-ebook/dp/B07XFG8WBR" target="_blank" rel="noopener">Ebook on Amazon</a>
+          <a class="btn ghost" href="https://colourblind.alvinkallicharran.com/home/lets-get-in-touch/" target="_blank" rel="noopener">Book a 15-minute talk with Alvin</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Inside the book</h3>
+    <ol class="chapters">
+        <li><h4>Introduction</h4><p>Why he needed time to write his story, and the four stages of his life.</p></li>
+        <li><h4>Humble Beginnings</h4><p>Growing up as the grandson of indentured laborers on Guyana's sugar plantations.</p></li>
+        <li><h4>Ground Roots</h4><p>The path to playing for Guyana.</p></li>
+        <li><h4>Sudden Rise</h4><p>From youth cricket to the big leagues, and meeting the game's greats.</p></li>
+        <li><h4>BMT</h4><p>Twelve keys to how top players perform consistently under pressure.</p></li>
+        <li><h4>Leaders, My Role-models</h4><p>Mentors and captains, and what makes people follow a leader.</p></li>
+        <li><h4>Unstoppable</h4><p>Anecdotes and milestones, including his Test debut hundred and World Cup wins.</p></li>
+        <li><h4>County Cricket</h4><p>The history and daily demands of the professional county game.</p></li>
+        <li><h4>Rebels in the Rainbow Nation</h4><p>His years playing in South Africa.</p></li>
+        <li><h4>Indians Rise</h4><p>India's 1983 World Cup win, and what separates teams that rise from those that fade.</p></li>
+        <li><h4>Overcoming Obstacles and Adversity</h4><p>Unfair play, controversial run-outs, being dropped and injuries.</p></li>
+        <li><h4>From Maestro to Mentor</h4><p>A hijacking in Soweto and how it changed his thinking.</p></li>
+        <li><h4>Stay Focused</h4><p>His spiritual journey and his belief that life has a purpose.</p></li>
+    </ol>
+
+    <h3 class="sub">What readers say</h3>
+    <div class="grid three">
+      <article class="item">
+        <p class="label">Raj Singh · Chief Editor and Advisor</p>
+        <p>Calls it a tutorial on becoming a successful cricketer, and a must-read for anyone facing long odds.</p>
+      </article>
+      <article class="item">
+        <p class="label">Robert Caine · Coach at Alvin's cricket school</p>
+        <p>Says Alvin shows how champions think, and challenges readers to be bridge builders and generous givers.</p>
+      </article>
+      <article class="item">
+        <p class="label">Kapil Dev · Former Indian cricketer</p>
+        <p>Has played cricket with Alvin for a long time and wishes him success, good health and happiness.</p>
+      </article>
+    </div>
+    <div class="links">
+      <a class="btn ghost" href="https://saathee.com/book-review-colour-blind-struggles-sacrifice-and-success-of-the-cricket-legend/" target="_blank" rel="noopener">Read a review</a>
+      <a class="btn ghost" href="https://saibaba.ws/articles/whentheyplayed.htm" target="_blank" rel="noopener">Spiritual essay: A Helmet that Finally Fits</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="academy">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Coaching today</p>
+      <h2>Teaching the next generation in Charlotte</h2>
+      <p>Alvin coaches young players at two Charlotte-area academies.</p>
+    </div>
+    <div class="grid">
+      <article class="item">
+        <p class="label">Charlotte, North Carolina</p>
+        <h3>Stanley School of Cricket</h3>
+        <p>Alvin coaches young cricketers at the school.</p>
+        <a class="go" href="https://www.instagram.com/stanleyschoolofcricket/" target="_blank" rel="noopener">Stanley School of Cricket on Instagram →</a>
+      </article>
+      <article class="item">
+        <p class="label">Charlotte and Indian Trail, North Carolina</p>
+        <h3>Elite Cricket Academy</h3>
+        <p>The academy lists Alvin as Brand Ambassador and Mentor. It trains players of all ages and levels through Grassroots, Intermediate, Competitive and High Performance programs, plus one-on-one coaching. Training is indoors in Charlotte and outdoors in Indian Trail.</p>
+        <a class="go" href="https://www.elitecricket.com/" target="_blank" rel="noopener">elitecricket.com →</a>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+<section class="block tint" id="foundation">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Give back</p>
+      <h2>Alvin Kallicharran Foundation</h2>
+      <p>“I did it so can you.”</p>
+    </div>
+    <div class="grid">
+      <article class="item lead">
+        <h3>Serving underprivileged kids in Guyana</h3>
+        <p>Founded in May 2024 by Alvin and Patsy Kallicharran, the foundation is a 501(c)(3) public charity registered in North Carolina. It uses education and sport to help children in Guyana who need it most.</p>
+      </article>
+      <article class="item">
+        <h3>Books for every age</h3>
+        <p>It distributes copies of Colour Blind for ages 11 to 21 and picture books for ages 3 to 5. Another picture book, for ages 6 to 11, is in the works. Guyana's Ministry of Education has said it will buy copies of Colour Blind for students of sport.</p>
+        <a class="go" href="https://www.caribbeannationalweekly.com/sports/guyanas-cricket-legend-alvin-kallicharan-unveils-memoir-advocates-for-racial-unity/" target="_blank" rel="noopener">Caribbean National Weekly →</a>
+      </article>
+      <article class="item">
+        <h3>Education sponsorship, planned for 2026</h3>
+        <p>Working with community groups and local leaders, the foundation will identify children in need and provide textbooks, workbooks and school supplies. Sponsorship would follow a child from primary through secondary school.</p>
+      </article>
+      <article class="item">
+        <h3>The goal: 5,000 kids a year</h3>
+        <p>The aim is to reach 5,000 children a year for five years through grassroots efforts, including community groups and places of worship.</p>
+      </article>
+      <article class="item">
+        <h3>Services proposed</h3>
+        <p>Nutrition and health education, mental health awareness, drug and violence prevention, counseling, fitness, technology education, financial literacy, career and apprenticeship programs, and family engagement in education.</p>
+      </article>
+      <article class="item lead">
+        <h3>How it runs</h3>
+        <p>The foundation relies on donations and sponsorship to cover printing, shipping, and volunteer travel and logistics. No one is paid for their services, and no money is planned for marketing. Outreach is through the website, social media and word of mouth.</p>
+        <a class="go" href="#contact">Ask how to donate, sponsor or volunteer →</a>
+      </article>
+    </div>
+
+    <h3 class="sub">More ways he gives back</h3>
+    <div class="grid">
+      <article class="item">
+        <h3>British Empire Medal, 2019</h3>
+        <p>Awarded for services to cricket and charity. His publisher's biography adds that he is Patron of the United Anglo-Caribbean Society, an Ambassador for American College Cricket, and has raised significant sums for Sport Relief.</p>
+        <a class="go" href="https://www.kaieteurnewsonline.com/2018/12/31/gcb-extends-warmest-felicitations-to-batting-maestro-alvin-kallicharran/" target="_blank" rel="noopener">Guyana Cricket Board congratulates him →</a>
+      </article>
+      <article class="item">
+        <h3>Restoring Bourda</h3>
+        <p>Part of the proceeds from his illustrated children's book go to the Georgetown Cricket Club's Bourda restoration fund. Several hundred copies went to the Berbice Cricket Board, and he ran a two-hour coaching session for the county's youth.</p>
+        <a class="go" href="https://wi.wickets.tel/?p=7693" target="_blank" rel="noopener">Read the report →</a>
+      </article>
+      <article class="item">
+        <h3>Coaching young players</h3>
+        <p>He now coaches young players at Stanley School of Cricket and Elite Cricket Academy in Charlotte. Earlier he coached juniors with the Triangle Cricket League in Morrisville, and in 2011 he handed out awards to the colts of South Hampstead Cricket Club in London.</p>
+        <a class="go" href="https://www.camdennewjournal.co.uk/article/cricket-former-west-indies-batsman-alvin-kallicharran-visits-youth-team-colts" target="_blank" rel="noopener">Camden New Journal →</a>
+      </article>
+      <article class="item">
+        <h3>Mentor in Puducherry</h3>
+        <p>In 2019 he began mentoring the Puducherry men's and women's cricket teams in India, where his grandparents were born.</p>
+        <a class="go" href="https://timesofindia.indiatimes.com/sports/cricket/news/kallicharan-to-be-mentor-of-puducherry-team/articleshow/70770386.cms" target="_blank" rel="noopener">The Times of India →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="india">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">India tour 2019</p>
+      <h2>Coaching, a book preview and a birthday in Chennai</h2>
+      <p>In March 2019 Alvin toured India to make a positive impact in many lives, working with children and communities and previewing Colour Blind.</p>
+    </div>
+    <div class="grid">
+      <article class="item">
+        <p class="label">Chennai · Akshar Arbol International School</p>
+        <h3>Facing the school team</h3>
+        <p>Three days before his 70th birthday, he batted against children bowling tennis balls at him in Injambakkam, and talked about the fast bowlers he played with.</p>
+      </article>
+      <article class="item">
+        <p class="label">Chennai · Amir Mahal</p>
+        <h3>Colour Blind pre-launch</h3>
+        <p>He spoke to the cricket community, fans and local guests about his book and his ties to the city, where his mother was born.</p>
+        <a class="go" href="http://www.newindianexpress.com/sport/cricket/2019/mar/27/chennai-batsmans-success-story-in-thirteen-chapters-1956324.html" target="_blank" rel="noopener">The New Indian Express →</a>
+      </article>
+      <article class="item">
+        <p class="label">Chennai · Music Academy</p>
+        <h3>His 70th birthday with N. Ram</h3>
+        <p>At an evening presented by Sportstar, he talked about his early life, his heroes and the idea behind Colour Blind.</p>
+        <a class="go" href="https://sportstar.thehindu.com/cricket/alvin-kallicharran-cricket-career-book-colour-blind-racism/article26601231.ece" target="_blank" rel="noopener">Sportstar →</a>
+      </article>
+      <article class="item">
+        <p class="label">Pilibhit, Uttar Pradesh</p>
+        <h3>Sharing his expertise</h3>
+        <p>He addressed the crowd, worked with local players and drew media attention, and the tour's photographs include a team with a trophy.</p>
+        <a class="go" href="https://alvinkallicharran.com/home/we-are-proud-of-our-work/" target="_blank" rel="noopener">Photos on the India Tour page →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="watch">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Videos</p>
+      <h2>Watch Kalli bat and talk</h2>
+    </div>
+    <div class="watch">
+      <div class="feature">
+        <p class="label" style="color:inherit;opacity:.8">Featured</p>
+        <h3>The innings that took on Lillee</h3>
+        <p>The 1975 World Cup match against Australia, where ten balls from Dennis Lillee went for 35.</p>
+        <a class="btn" href="https://www.youtube.com/results?search_query=Alvin+Kallicharran+Lillee+1975+World+Cup" target="_blank" rel="noopener">Find it on YouTube</a>
+      </div>
+      <div class="queue">
+        <a href="https://alvinkallicharran.com/" target="_blank" rel="noopener"><strong>Cricket &amp; Coffee with Kalli</strong><span>Video series · his favorites, highlights and principles</span></a>
+        <a href="https://www.youtube.com/results?search_query=Alvin+Kallicharran" target="_blank" rel="noopener"><strong>All Alvin Kallicharran videos</strong><span>YouTube search</span></a>
+        <a href="https://www.youtube.com/results?search_query=Alvin+Kallicharran+Colour+Blind+book+launch" target="_blank" rel="noopener"><strong>Colour Blind book launch</strong><span>YouTube search</span></a>
+        <a href="https://www.youtube.com/results?search_query=Alvin+Kallicharran+interview" target="_blank" rel="noopener"><strong>Interviews</strong><span>YouTube search</span></a>
+        <a href="https://www.youtube.com/results?search_query=Alvin+Kallicharran+coaching" target="_blank" rel="noopener"><strong>Coaching sessions</strong><span>YouTube search</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="photos">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Photographs</p>
+      <h2>Gallery</h2>
+      <p>Tap any photo to enlarge it, then use the arrows or swipe to move through the set.</p>
+    </div>
+    <h3 class="sub" style="margin-top:0">At the crease</h3>
+    <div class="gal">
+      <button type="button" class="ph" data-full="photos/n08f.webp" data-cap="Pulling, with the wicketkeeper crouched behind the stumps" data-alt="A batsman playing a pull shot with the wicketkeeper behind" aria-label="Enlarge photo: Pulling, with the wicketkeeper crouched behind the stumps"><img src="photos/n08t.webp" width="640" height="478" alt="A batsman playing a pull shot with the wicketkeeper behind" loading="lazy"><span>Pulling, with the wicketkeeper crouched behind the stumps</span></button>
+      <button type="button" class="ph" data-full="photos/n01f.webp" data-cap="Bat raised, the wicketkeeper kneeling at the stumps" data-alt="A batsman with his bat raised beside the stumps while the wicketkeeper kneels" aria-label="Enlarge photo: Bat raised, the wicketkeeper kneeling at the stumps"><img src="photos/n01t.webp" width="640" height="478" alt="A batsman with his bat raised beside the stumps while the wicketkeeper kneels" loading="lazy"><span>Bat raised, the wicketkeeper kneeling at the stumps</span></button>
+      <button type="button" class="ph" data-full="photos/n06f.webp" data-cap="Sweeping from one knee" data-alt="A batsman sweeping from one knee with the wicketkeeper behind the stumps" aria-label="Enlarge photo: Sweeping from one knee"><img src="photos/n06t.webp" width="640" height="478" alt="A batsman sweeping from one knee with the wicketkeeper behind the stumps" loading="lazy"><span>Sweeping from one knee</span></button>
+      <button type="button" class="ph" data-full="photos/n05f.webp" data-cap="A lofted drive, the wicketkeeper looking on" data-alt="A batsman driving with the bat high, the wicketkeeper beside him" aria-label="Enlarge photo: A lofted drive, the wicketkeeper looking on"><img src="photos/n05t.webp" width="640" height="794" alt="A batsman driving with the bat high, the wicketkeeper beside him" loading="lazy"><span>A lofted drive, the wicketkeeper looking on</span></button>
+      <button type="button" class="ph" data-full="photos/n03f.webp" data-cap="A high-elbow drive" data-alt="A batsman in a classical drive with a high left elbow" aria-label="Enlarge photo: A high-elbow drive"><img src="photos/n03t.webp" width="640" height="1062" alt="A batsman in a classical drive with a high left elbow" loading="lazy"><span>A high-elbow drive</span></button>
+      <button type="button" class="ph" data-full="photos/n04f.webp" data-cap="Following through, bat over the shoulder" data-alt="A batsman following through with the bat over his shoulder in front of the stumps" aria-label="Enlarge photo: Following through, bat over the shoulder"><img src="photos/n04t.webp" width="640" height="954" alt="A batsman following through with the bat over his shoulder in front of the stumps" loading="lazy"><span>Following through, bat over the shoulder</span></button>
+      <button type="button" class="ph" data-full="photos/f04.webp" data-cap="A cover drive in colour" data-alt="A batsman playing a cover drive on a green outfield" aria-label="Enlarge photo: A cover drive in colour"><img src="photos/t04.webp" width="594" height="402" alt="A batsman playing a cover drive on a green outfield" loading="lazy"><span>A cover drive in colour</span></button>
+      <button type="button" class="ph" data-full="photos/f09.webp" data-cap="Cutting, with the slips and short leg waiting" data-alt="A batsman playing a cut shot with close fielders waiting" aria-label="Enlarge photo: Cutting, with the slips and short leg waiting"><img src="photos/t09.webp" width="640" height="538" alt="A batsman playing a cut shot with close fielders waiting" loading="lazy"><span>Cutting, with the slips and short leg waiting</span></button>
+      <button type="button" class="ph" data-full="photos/f03.webp" data-cap="The “Kalli” poster" data-alt="A poster headed Kalli showing a batsman about to play a shot" aria-label="Enlarge photo: The “Kalli” poster"><img src="photos/t03.webp" width="640" height="419" alt="A poster headed Kalli showing a batsman about to play a shot" loading="lazy"><span>The “Kalli” poster</span></button>
+      <button type="button" class="ph" data-full="photos/f14.webp" data-cap="Driving, with the wicketkeeper close behind" data-alt="Black and white photo of a batsman driving with the wicketkeeper watching" aria-label="Enlarge photo: Driving, with the wicketkeeper close behind"><img src="photos/t14.webp" width="640" height="795" alt="Black and white photo of a batsman driving with the wicketkeeper watching" loading="lazy"><span>Driving, with the wicketkeeper close behind</span></button>
+      <button type="button" class="ph" data-full="photos/f05.webp" data-cap="Hooking a short ball" data-alt="Black and white photo of a batsman hooking as a fast bowler follows through" aria-label="Enlarge photo: Hooking a short ball"><img src="photos/t05.webp" width="640" height="419" alt="Black and white photo of a batsman hooking as a fast bowler follows through" loading="lazy"><span>Hooking a short ball</span></button>
+    </div>
+    <h3 class="sub">Off the field</h3>
+    <div class="gal">
+      <button type="button" class="ph" data-full="photos/p01f.webp" data-cap="Smiling in a green cap" data-alt="Smiling portrait in a green cap and cream shirt" aria-label="Enlarge photo: Smiling in a green cap"><img src="photos/p01t.webp" width="640" height="640" alt="Smiling portrait in a green cap and cream shirt" loading="lazy"><span>Smiling in a green cap</span></button>
+      <button type="button" class="ph" data-full="photos/n02f.webp" data-cap="A close-up from the playing days" data-alt="Close-up portrait of a young man with dark curly hair" aria-label="Enlarge photo: A close-up from the playing days"><img src="photos/n02t.webp" width="640" height="857" alt="Close-up portrait of a young man with dark curly hair" loading="lazy"><span>A close-up from the playing days</span></button>
+      <button type="button" class="ph" data-full="photos/n07f.webp" data-cap="Portrait card" data-alt="Portrait card with the name Alvin Kallicharran over a stadium at dusk" aria-label="Enlarge photo: Portrait card"><img src="photos/n07t.webp" width="640" height="478" alt="Portrait card with the name Alvin Kallicharran over a stadium at dusk" loading="lazy"><span>Portrait card</span></button>
+      <button type="button" class="ph" data-full="photos/f06.webp" data-cap="In conversation at an outdoor event" data-alt="Two men seated in conversation outdoors" aria-label="Enlarge photo: In conversation at an outdoor event"><img src="photos/t06.webp" width="640" height="360" alt="Two men seated in conversation outdoors" loading="lazy"><span>In conversation at an outdoor event</span></button>
+      <button type="button" class="ph" data-full="photos/f08.webp" data-cap="A photo-call on a football pitch" data-alt="Cricketers crouched around a stump as a man swings a bat at a large white ball" aria-label="Enlarge photo: A photo-call on a football pitch"><img src="photos/t08.webp" width="640" height="492" alt="Cricketers crouched around a stump as a man swings a bat at a large white ball" loading="lazy"><span>A photo-call on a football pitch</span></button>
+    </div>
+    <h3 class="sub">More photographs</h3>
+    <div class="queue">
+      <a href="https://www.instagram.com/alvinkallicharran/" target="_blank" rel="noopener"><strong>Kalli on Instagram</strong><span>@alvinkallicharran · his own photos</span></a>
+      <a href="https://www.instagram.com/p/DK2oYBcuuYR/" target="_blank" rel="noopener"><strong>Featured Instagram post</strong><span>Instagram</span></a>
+      <a href="https://www.instagram.com/p/DWJQEXaim9t/?img_index=7" target="_blank" rel="noopener"><strong>Photo set from Instagram</strong><span>Instagram</span></a>
+      <a href="https://www.cricinfo.com/cricketers/alvin-kallicharran-52285/photos" target="_blank" rel="noopener"><strong>Playing-days photographs</strong><span>ESPNcricinfo</span></a>
+      <a href="https://www.gettyimages.com/photos/alvin-kallicharran" target="_blank" rel="noopener"><strong>Archive photographs</strong><span>Getty Images · licensed images</span></a>
+      <a href="https://www.alamy.com/stock-photo/alvin-kallicharran.html?sortBy=relevant" target="_blank" rel="noopener"><strong>Archive photographs</strong><span>Alamy · licensed images</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="block tint" id="news">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">In the news</p>
+      <h2>Recent coverage</h2>
+    </div>
+    <div class="grid">
+      <article class="item">
+        <p class="label">Sportstar · March 2019</p>
+        <h3>Alvin Kallicharran’s tale of struggle, sacrifice and success</h3>
+        <p>On his 70th birthday in Chennai, he spoke about poverty, racism and the idea behind his memoir.</p>
+        <a class="go" href="https://sportstar.thehindu.com/cricket/alvin-kallicharran-cricket-career-book-colour-blind-racism/article26601231.ece" target="_blank" rel="noopener">Read on Sportstar →</a>
+      </article>
+      <article class="item">
+        <p class="label">Sportstar</p>
+        <h3>More from The Hindu’s Sportstar</h3>
+        <p>A further Sportstar feature on his career and the great West Indies sides he played in.</p>
+        <a class="go" href="https://sportstar.thehindu.com/cricket/alvin-kallicharran-west-indies-michael-holding-andy-roberts-viv-richards-cricket/article26502775.ece" target="_blank" rel="noopener">Read on Sportstar →</a>
+      </article>
+      <article class="item">
+        <p class="label">Caribbean Today</p>
+        <h3>Cricket Legend Alvin Kallicharan Unveils Autobiography Entitled ‘Colour Blind’</h3>
+        <p>The Georgetown launch, where he talked about hard work, perseverance and giving back to Guyana and Berbice.</p>
+        <a class="go" href="https://caribbeantoday.com/sections/books/cricket-legend-alvin-kallicharan-unveils-autobiography-entitled-colour-blind" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">Caribbean National Weekly</p>
+        <h3>Guyana’s cricket legend Alvin Kallicharan unveils memoir, advocates for racial unity</h3>
+        <p>On the memoir as a call for diversity, and the Ministry of Education’s support for it.</p>
+        <a class="go" href="https://www.caribbeannationalweekly.com/sports/guyanas-cricket-legend-alvin-kallicharan-unveils-memoir-advocates-for-racial-unity/" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">The New Indian Express · March 2019</p>
+        <h3>A batsman’s success story in thirteen chapters</h3>
+        <p>Pre-launch of Colour Blind in Chennai, the city where his mother was born.</p>
+        <a class="go" href="http://www.newindianexpress.com/sport/cricket/2019/mar/27/chennai-batsmans-success-story-in-thirteen-chapters-1956324.html" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">Kaieteur News · December 2018</p>
+        <h3>GCB extends warmest felicitations to batting Maestro, Alvin Kallicharran</h3>
+        <p>The Guyana Cricket Board marks his British Empire Medal.</p>
+        <a class="go" href="https://www.kaieteurnewsonline.com/2018/12/31/gcb-extends-warmest-felicitations-to-batting-maestro-alvin-kallicharran/" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">Wickets · 2023</p>
+        <h3>Kalli Donates Book Sales Proceeds To GCC Renovation Fund!</h3>
+        <p>His children's book gives to the restoration of the Bourda ground in Georgetown.</p>
+        <a class="go" href="https://wi.wickets.tel/?p=7693" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">The Times of India · August 2019</p>
+        <h3>Kallicharran to be mentor of Puducherry team</h3>
+        <p>His appointment to the Puducherry men's and women's sides.</p>
+        <a class="go" href="https://timesofindia.indiatimes.com/sports/cricket/news/kallicharan-to-be-mentor-of-puducherry-team/articleshow/70770386.cms" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">The Times of India · March 2019</p>
+        <h3>Alvin Kallicharran talks about his Madras connect</h3>
+        <p>At Amir Mahal in Chennai, he spoke to the cricket community and fans about Colour Blind and his ties to the city.</p>
+        <a class="go" href="http://timesofindia.indiatimes.com/articleshow/68646194.cms" target="_blank" rel="noopener">Read the article →</a>
+      </article>
+      <article class="item">
+        <p class="label">Chennai · March 2019</p>
+        <h3>When Windies cricket is healthy, world cricket is healthy</h3>
+        <p>Three days before his 70th birthday, he faced school children with a bat and talked about the fast bowlers he played with.</p>
+        <a class="go" href="https://alvinkallicharran.com/?p=2742" target="_blank" rel="noopener">Read on his site →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="head">
+      <p class="label">Contact</p>
+      <h2>Just ask. Get answers.</h2>
+      <p>Questions about coaching, speaking, Colour Blind, the foundation or his India tours are welcome.</p>
+    </div>
+    <div class="grid three">
+      <article class="item">
+        <h3>Email</h3>
+        <p class="mail" id="email-text">hello@alvinkallicharran.com</p>
+        <button type="button" class="btn ghost copy" id="copy-email" style="justify-self:start;margin-top:.4rem">Copy email</button>
+      </article>
+      <article class="item">
+        <h3>Based in</h3>
+        <p>5817 Cricket Pitch Way, Morrisville, NC 27560, USA</p>
+        <p class="note">Address as listed on his own site. He also coaches in Charlotte.</p>
+      </article>
+      <article class="item">
+        <h3>Meet Alvin</h3>
+        <p>Book a 15-minute conversation, or use the contact form on his own site.</p>
+        <a class="go" href="https://colourblind.alvinkallicharran.com/home/lets-get-in-touch/" target="_blank" rel="noopener">Book a 15-minute talk →</a>
+        <a class="go" href="https://alvinkallicharran.com/home/contact/" target="_blank" rel="noopener">Contact form →</a>
+        <a class="go" href="https://alvinkallicharran.com/" target="_blank" rel="noopener">Monthly newsletter, sign up on his site →</a>
+      </article>
+      <article class="item lead">
+        <h3>Follow and connect</h3>
+        <div class="links" style="margin-top:.25rem">
+          <a class="btn ghost" href="https://www.instagram.com/alvinkallicharran/" target="_blank" rel="noopener">Instagram · Alvin</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/alvin-kallicharran-444998169" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="https://www.instagram.com/stanleyschoolofcricket/" target="_blank" rel="noopener">Stanley School of Cricket</a>
+          <a class="btn ghost" href="https://www.elitecricket.com/" target="_blank" rel="noopener">Elite Cricket Academy</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Alvin Kallicharran BEM · North Carolina. Career figures from ESPNcricinfo, Wikipedia and Wisden. Articles linked on this page belong to their publishers.</p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Alvin_Kallicharran" target="_blank" rel="noopener">Wikipedia</a></li>
+      <li><a href="https://www.cricinfo.com/cricketers/alvin-kallicharran-52285" target="_blank" rel="noopener">ESPNcricinfo</a></li>
+      <li><a href="https://wisden.com/players/alvin-kallicharran" target="_blank" rel="noopener">Wisden</a></li>
+      <li><a href="https://www.instagram.com/alvinkallicharran/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/alvin-kallicharran-444998169" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <div class="credit">
+      <img src="photos/ritvik.webp" width="480" height="616" alt="Ritvik Shivakumar smiling, in a gray quarter-zip sweater against a brick wall" loading="lazy">
+      <p><span class="label">Website created by</span><strong>Ritvik Shivakumar</strong><span>Website creator · Student</span></p>
+    </div>
+  </div>
+</footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lb-bar"><span id="lb-count"></span><button type="button" id="lb-close">Close</button></div>
+  <div class="lb-stage">
+    <button type="button" class="lb-nav" id="lb-prev" aria-label="Previous photo">&#8249;</button>
+    <img id="lb-img" alt="">
+    <button type="button" class="lb-nav" id="lb-next" aria-label="Next photo">&#8250;</button>
+  </div>
+  <p class="lb-cap" id="lb-cap"></p>
+</div>
+<script>
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.ph'));
+  var lb = document.getElementById('lb');
+  if (!lb || !items.length) return;
+  var img = document.getElementById('lb-img'), cap = document.getElementById('lb-cap'), count = document.getElementById('lb-count');
+  var closeB = document.getElementById('lb-close'), prevB = document.getElementById('lb-prev'), nextB = document.getElementById('lb-next');
+  var cur = 0, opener = null, x0 = null;
+  function show(i) {
+    cur = (i + items.length) % items.length;
+    var b = items[cur];
+    img.src = b.getAttribute('data-full');
+    img.alt = b.getAttribute('data-alt') || '';
+    cap.textContent = b.getAttribute('data-cap') || '';
+    count.textContent = (cur + 1) + ' / ' + items.length;
+  }
+  function openAt(i) { opener = document.activeElement; show(i); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; closeB.focus(); }
+  function close() { lb.hidden = true; img.removeAttribute('src'); document.documentElement.style.overflow = ''; if (opener && opener.focus) opener.focus(); }
+  items.forEach(function (b, i) { b.addEventListener('click', function () { openAt(i); }); });
+  closeB.addEventListener('click', close);
+  prevB.addEventListener('click', function () { show(cur - 1); });
+  nextB.addEventListener('click', function () { show(cur + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-stage')) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') show(cur - 1);
+    else if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+})();
+</script>
+<script>
+(function () {
+  var b = document.getElementById('copy-email');
+  var el = document.getElementById('email-text');
+  if (!b || !el) return;
+  b.addEventListener('click', function () {
+    var done = function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy email'; }, 1800); };
+    var fallback = function () {
+      try {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      } catch (e) {}
+      b.textContent = 'Selected, press copy';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.textContent.trim()).then(done, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Render Blueprint: deploys the site as a static site.
+# dist/ is committed, so the build only refreshes it from src/.
+services:
+  - type: web
+    name: kallicharran-site
+    runtime: static
+    buildCommand: python3 build_site.py build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
